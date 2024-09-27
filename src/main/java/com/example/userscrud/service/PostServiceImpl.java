@@ -11,13 +11,9 @@ import lombok.AllArgsConstructor;
 @Service
 @AllArgsConstructor
 public class PostServiceImpl implements PostService {
-	
-	private PostRepository postRepository;
-	
-	public PostServiceImpl(PostRepository postRepository) {
-		this.postRepository=postRepository;
-	}
-	
+
+	private final PostRepository postRepository;
+
 	@Override
 	public Post createPost(Post post) {
 		return postRepository.save(post);

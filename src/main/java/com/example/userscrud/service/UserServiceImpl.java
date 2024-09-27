@@ -13,13 +13,8 @@ import lombok.AllArgsConstructor;
 @Service
 @AllArgsConstructor
 public class UserServiceImpl implements UserService {
-	
-	
-	private UserRepository userRepository;
-	
-	public UserServiceImpl(UserRepository repository) {
-		this.userRepository=repository;
-	}
+
+	private final UserRepository userRepository;
 
 	@Override
 	public List<User> getAllUsers() {
@@ -34,10 +29,9 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public User getUser(String email) {
 		User user = userRepository.findByEmailAddress(email);
-		if(user == null) {
-			throw new UserNotFoundException("User with email : "+email+" doesn't exist.");
+		if (user == null) {
+			throw new UserNotFoundException("User with email: " + email + " doesn't exist.");
 		}
-		
 		return user;
 	}
 
@@ -46,5 +40,4 @@ public class UserServiceImpl implements UserService {
 		User user = userRepository.findByEmailAddress(email);
 		userRepository.delete(user);
 	}
-
 }
