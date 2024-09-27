@@ -11,21 +11,21 @@ pipeline {
 
         stage('Build') {
             steps {
-                // Run the build command (adjust according to your project needs)
+                // Run the build command 
                 sh 'mvn clean install'
             }
         }
 
         stage('Test') {
             steps {
-                // Run tests (adjust according to your project needs)
+                // Run tests 
                 sh 'mvn test'
             }
         }
 
         stage('Deploy') {
             steps {
-                // Deployment steps (adjust this section based on your deployment strategy)
+                // Deployment steps 
                 echo 'Deploying the application...'
                 // Example deployment command (modify as needed)
                 // sh './deploy.sh' or other deployment scripts/commands
