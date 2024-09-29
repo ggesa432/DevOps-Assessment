@@ -40,4 +40,19 @@ public class UserServiceImpl implements UserService {
 		User user = userRepository.findByEmailAddress(email);
 		userRepository.delete(user);
 	}
+
+	@Override
+	public void deleteUserByName(String name) {
+		List<User> users = userRepository.findByName(name);
+
+		if (users.size() > 1) {
+			throw new IllegalStateException("Multiple users found with the name: " + name + ". Cannot delete.");
+		} else if (users.isEmpty()) {
+			throw new UserNotFoundException("No user found with the name: " + name);
+		}
+
+		userRepository.delete(users.get(0));
+	}
+
+
 }

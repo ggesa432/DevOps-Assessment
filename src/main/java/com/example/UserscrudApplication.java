@@ -13,11 +13,11 @@ public class UserscrudApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(UserscrudApplication.class, args);
-		
-		
-		ConfigurableApplicationContext context = SpringApplication.run(UserscrudApplication.class, args); 
-		
-		context.getBean(Post.class);
+
+
+//		ConfigurableApplicationContext context = SpringApplication.run(UserscrudApplication.class, args);
+//
+//		context.getBean(Post.class);
 		
 	}
 

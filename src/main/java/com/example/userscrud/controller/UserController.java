@@ -84,6 +84,12 @@ public class UserController {
 				.buildAndExpand(savedPost.getId()).toUri();
 		return ResponseEntity.created(location).build();
 	}
-	
+
+	@DeleteMapping("/name/{name}")
+	public ResponseEntity<Void> deleteUserByName(@PathVariable String name) {
+		userService.deleteUserByName(name);
+		return ResponseEntity.noContent().build();
+	}
+
 
 }
